@@ -1,0 +1,27 @@
+{
+    "name": "aligent/orocommerce-s3mediabundle",
+    "description": "Amazon S3 Based media storage for OroCommerce",
+    "homepage": "https://github.com/aligent/orocommerce-s3mediabundle",
+    "keywords": ["Oro", "OroCommerce", "Amazon", "S3", "AWS"],
+    "license": "OSL-3.0",
+    "authors": [
+        {
+            "name": "Adam Hall",
+            "email": "adam.hall@aligent.com.au",
+            "homepage": "http://www.aligent.com.au/"
+        }, {
+            "name": "Jim O'Halloran",
+            "email": "jim@aligent.com.au",
+            "homepage": "http://www.aligent.com.au/"
+        }
+    ],
+    "require": {
+        "php": ">=7.1",
+        "oro/commerce": "3.*",
+        "gaufrette/aws-s3-adapter": "^0.4.0"
+    },
+    "autoload": {
+        "psr-4": { "Aligent\\S3MediaBundle\\": "./src/" },
+        "exclude-from-classmap": ["src/Tests/"]
+    }
+}
