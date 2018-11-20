@@ -11,8 +11,7 @@ knp_gaufrette:
 
         mediacache_local:
             local:
-                directory: "%kernel.root_dir%/../web/%oro_attachment.media_cache_dir%"
-                #directory: "%kernel.root_dir%/images/%oro_attachment.media_cache_dir%"
+                directory: "%kernel.root_dir%/../public/%oro_attachment.media_cache_dir%"
                 create: true
         s3_mediacache:
             aws_s3:
