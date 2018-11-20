@@ -1,0 +1,2 @@
+bundles:
+    - { name: Aligent\S3MediaBundle\AligentS3MediaBundle, priority: 50 }

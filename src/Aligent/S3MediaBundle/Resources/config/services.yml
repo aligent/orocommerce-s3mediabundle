@@ -1,0 +1,18 @@
+parameters:
+    aligent_s3.credentials:
+        secret: '%amazon_s3.secret%'
+        key: '%amazon_s3.key%'
+
+services:
+    aligent_s3.credentials_provider.ecs:
+        class: Aws\Credentials\EcsCredentialProvider
+        factory: 'Aws\Credentials\CredentialProvider::ecsCredentials'
+
+    # Uses the ECS credentials provider if the secret and key are empty
+    aligent_s3.client:
+        class: Aws\S3\S3Client
+        arguments:
+            -
+                version: latest
+                region: '%amazon_s3.region%'
+                credentials: "@=parameter('amazon_s3.secret') != null && parameter('amazon_s3.key') != null ? parameter('aligent_s3.credentials') : service('aligent_s3.credentials_provider.ecs')"

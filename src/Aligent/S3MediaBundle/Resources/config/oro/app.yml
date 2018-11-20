@@ -1,0 +1,34 @@
+# S3 Media Bucket Configuration
+knp_gaufrette:
+    adapters:
+        s3_attachments:
+            aws_s3:
+                service_id: 'aligent_s3.client'
+                bucket_name: '%amazon_s3.bucket_name%'
+                options:
+                    directory:  '%oro_attachment.attachments_dir%'
+                    create: true
+
+        mediacache_local:
+            local:
+                directory: "%kernel.root_dir%/../web/%oro_attachment.media_cache_dir%"
+                #directory: "%kernel.root_dir%/images/%oro_attachment.media_cache_dir%"
+                create: true
+        s3_mediacache:
+            aws_s3:
+                service_id: 'aligent_s3.client'
+                bucket_name: '%amazon_s3.bucket_name%'
+                options:
+                    directory:  '%oro_attachment.media_cache_dir%'
+                    create: true
+        mediacache_cache:
+            cache:
+              source: s3_mediacache
+              cache: mediacache_local
+              ttl: 86400
+
+    filesystems:
+        attachments:
+            adapter: s3_attachments
+        mediacache:
+            adapter: mediacache_cache
