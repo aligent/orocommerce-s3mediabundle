@@ -37,6 +37,33 @@ Installation Instructions
         
         php app/console cache:clear --env=prod
         
+AWS Setup
+---------
+
+1. Create an Amazon S3 bucket.  Default settings and permissions are fine, 
+there is no need for the bucket to be public.
+
+1. Create the following IAM Customer Managed Policy (which grants full 
+access to a single S3 bucket) substituting NameOfBucketHere with your S3 
+bucket's name:
+
+        {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Effect": "Allow",
+                    "Action": "s3:*",
+                    "Resource": [
+                        "arn:aws:s3:::NameOfBucketHere",
+                        "arn:aws:s3:::NameOfBucketHere/*"
+                    ]
+                }
+            ]
+        }
+
+1. Create an IAM user, directly attach your new policy and generate Access and 
+Secret keys.  Insert those values into your parameters.yml (see above), clear 
+cache and you're good to go!
 
 Support
 -------
