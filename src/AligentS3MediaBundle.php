@@ -12,9 +12,20 @@
 
 namespace Aligent\S3MediaBundle;
 
+use Aligent\S3MediaBundle\DependencyInjection\Compiler\ChainCredentialsProviderPass;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 class AligentS3MediaBundle extends Bundle
 {
 
+    /**
+     * @param ContainerBuilder $container
+     */
+    public function build(ContainerBuilder $container)
+    {
+        parent::build($container);
+
+        $container->addCompilerPass(new ChainCredentialsProviderPass());
+    }
 }

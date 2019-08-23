@@ -1,18 +1,36 @@
-parameters:
-    aligent_s3.credentials:
-        secret: '%amazon_s3.secret%'
-        key: '%amazon_s3.key%'
-
 services:
+    aligent_s3.cache:
+        parent: oro.cache.abstract
+        public: false
+        calls:
+            - [ setNamespace, [ 'aligent_s3' ] ]
+
+    aligent_s3.credentials_provider.chain:
+        class: Aligent\S3MediaBundle\Provider\ChainCredentialsProvider
+
+    aligent_s3.credentials:
+        class: GuzzleHttp\Promise\PromiseInterface
+        factory: ['@aligent_s3.credentials_provider.chain', 'getCredentialChain']
+
     aligent_s3.credentials_provider.ecs:
         class: Aws\Credentials\EcsCredentialProvider
-        factory: 'Aws\Credentials\CredentialProvider::ecsCredentials'
+        factory: ['Aws\Credentials\CredentialProvider', 'ecsCredentials']
+        tags:
+            - { name: aligent_s3.crendential_provider }
 
-    # Uses the ECS credentials provider if the secret and key are empty
+    aligent_s3.credentials_provider.key:
+        class: 'Aligent\S3MediaBundle\Provider\SecretKeyCredentialProvider'
+        arguments:
+            - "@=container.hasParameter('amazon_s3.key') ? parameter('amazon_s3.key') : ''"
+            - "@=container.hasParameter('amazon_s3.secret') ? parameter('amazon_s3.secret') : ''"
+        tags:
+            - { name: aligent_s3.crendential_provider }
+
     aligent_s3.client:
         class: Aws\S3\S3Client
         arguments:
             -
                 version: latest
                 region: '%amazon_s3.region%'
-                credentials: "@=parameter('amazon_s3.secret') != null && parameter('amazon_s3.key') != null ? parameter('aligent_s3.credentials') : service('aligent_s3.credentials_provider.ecs')"
+                credentials.cache: "@aligent_s3.cache"
+                credentials: "@aligent_s3.credentials"
