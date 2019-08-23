@@ -15,6 +15,7 @@ namespace Aligent\S3MediaBundle\Provider;
 
 use Aws\Credentials\CredentialProvider;
 use Aws\Credentials\Credentials;
+use Aws\DoctrineCacheAdapter;
 use Aws\Exception\CredentialsException;
 use GuzzleHttp\Promise\PromiseInterface;
 use GuzzleHttp\Psr7\Request;
@@ -26,6 +27,20 @@ class ChainCredentialsProvider
      * @var array Credential Providers
      */
     protected $providers = [];
+
+    /**
+     * @var DoctrineCacheAdapter
+     */
+    protected $cache;
+
+    /**
+     * ChainCredentialsProvider constructor.
+     * @param DoctrineCacheAdapter $cache
+     */
+    public function __construct(DoctrineCacheAdapter $cache)
+    {
+        $this->cache = $cache;
+    }
 
     /**
      * @param array $providers
@@ -41,7 +56,7 @@ class ChainCredentialsProvider
      */
     public function addProvider($provider)
     {
-        $this->providers[] = $provider;
+        $this->providers[] = CredentialProvider::cache($provider, $this->cache);
         return $this;
     }
 

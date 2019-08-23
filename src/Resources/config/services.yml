@@ -5,8 +5,15 @@ services:
         calls:
             - [ setNamespace, [ 'aligent_s3' ] ]
 
+    aligent_s3.cache_adapter:
+        class: Aws\DoctrineCacheAdapter
+        arguments:
+            - '@aligent_s3.cache'
+
     aligent_s3.credentials_provider.chain:
         class: Aligent\S3MediaBundle\Provider\ChainCredentialsProvider
+        arguments:
+            - '@aligent_s3.cache_adapter'
 
     aligent_s3.credentials:
         class: GuzzleHttp\Promise\PromiseInterface
@@ -32,5 +39,4 @@ services:
             -
                 version: latest
                 region: '%amazon_s3.region%'
-                credentials.cache: "@aligent_s3.cache"
                 credentials: "@aligent_s3.credentials"
