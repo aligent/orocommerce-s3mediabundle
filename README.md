@@ -36,7 +36,7 @@ Installation Instructions
 
 1. Clear cache
         
-        php app/console cache:clear --env=prod
+        php bin/console cache:clear --env=prod
         
 AWS Setup
 ---------
@@ -83,10 +83,12 @@ Initial version by Adam Hall <adam.hall@aligent.com.au>.
 
 Minor tweaks for OroCommerce 3.0 by Jim O'Halloran <jim@aligent.com.au>
 
+Update for Oro Platform 4.0 by Jim O'Halloran <jim.ohalloran@incore.com.au>
+
 Licence
 -------
 [OSL - Open Software Licence 3.0](http://opensource.org/licenses/osl-3.0.php)
 
 Copyright
 ---------
-(c) 2018 Aligent Consulting
+(c) 2018-19 Aligent Consulting
