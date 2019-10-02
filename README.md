@@ -3,7 +3,7 @@ Amazon S3 Media Storage Bundle for OroCommerce
 
 Facts
 -----
-- version: 1.0.0
+- version: 1.1.1
 - composer name: aligent/orocommerce-s3mediabundle
 
 Description
@@ -65,6 +65,20 @@ bucket's name:
 Secret keys.  Insert those values into your parameters.yml (see above), clear 
 cache and you're good to go!
 
+Upgrading OroCommerce Enterprise to 3.1.12, 4.1 or 1.6.45
+-------
+Oro have migrated the media cache directory structure so that images with the same filters will be shared across websites, reducing the size of the media cache.
+Unfortunately if you have a large amount of images stored on S3 using this bundle the core Migration can take a LONG time to migrate to the new structure.
+We have provided a command that can be run locally to copy the images to the new directory structure. This way you can pre-move the images and manually mark that migration as being run.
+
+Usage:
+```
+$ bin/console aligent:s3:migrate-website-images bianco-hardware-media AWS_KEY AWS_SECRET ap-southeast-2 --env=prod
+```
+
+Once the images have been copied to the new path, you can mark the core Oro\Bundle\MultiWebsiteBundle\Migrations\Data\ORM\MigrateFilteredAttachments data migration has run in the database and deploy the new version.
+After the deploy is complete, you can delete all the images from their old path.
+ 
 Support
 -------
 If you have any issues with this bundle, please create a 

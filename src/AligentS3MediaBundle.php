@@ -13,6 +13,7 @@
 namespace Aligent\S3MediaBundle;
 
 use Aligent\S3MediaBundle\DependencyInjection\Compiler\ChainCredentialsProviderPass;
+use Symfony\Component\Console\Application;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
