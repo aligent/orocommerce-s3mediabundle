@@ -73,7 +73,7 @@ We have provided a command that can be run locally to copy the images to the new
 
 Usage:
 ```
-$ bin/console aligent:s3:migrate-website-images bianco-hardware-media AWS_KEY AWS_SECRET ap-southeast-2 --env=prod
+$ bin/console aligent:s3:migrate-website-images some-bucket-name AWS_KEY AWS_SECRET ap-southeast-2 --env=prod
 ```
 
 Once the images have been copied to the new path, you can mark the core Oro\Bundle\MultiWebsiteBundle\Migrations\Data\ORM\MigrateFilteredAttachments data migration has run in the database and deploy the new version.
