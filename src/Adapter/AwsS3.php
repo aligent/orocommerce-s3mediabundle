@@ -31,7 +31,6 @@ class AwsS3 extends BaseAdapter
             $options['Prefix'] = $this->options['directory'];
         }
 
-        $keys = [];
         $iter = $this->service->getIterator('ListObjects', $options);
 
         return $iter;
