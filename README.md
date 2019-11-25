@@ -76,8 +76,9 @@ Usage:
 $ bin/console aligent:s3:migrate-website-images some-bucket-name AWS_KEY AWS_SECRET ap-southeast-2 --env=prod
 ```
 
-Once the images have been copied to the new path, you can mark the core Oro\Bundle\MultiWebsiteBundle\Migrations\Data\ORM\MigrateFilteredAttachments data migration has run in the database and deploy the new version.
-After the deploy is complete, you can delete all the images from their old path.
+Once the images have been copied to the new path, you can mark the core Oro\Bundle\MultiWebsiteBundle\Migrations\Data\ORM\MigrateFilteredAttachments 
+and Oro\Bundle\AttachmentBundle\Migrations\Data\ORM\MigrateFilteredAttachments data migrations as run in the database (By performing a manual insert into the oro_migrations_data table) 
+and deploy the new version. After the deploy is complete, you can delete all the images from their old path.
  
 Support
 -------
