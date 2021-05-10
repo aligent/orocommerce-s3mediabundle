@@ -40,3 +40,10 @@ services:
                 version: latest
                 region: '%amazon_s3.region%'
                 credentials: "@aligent_s3.credentials"
+
+    # Migration Command Services:
+    aligent_s3.attachment_migration_service:
+        class: Aligent\S3MediaBundle\Service\FilteredAttachmentMigrationService
+        arguments:
+            - '@liip_imagine.filter.configuration'
+            - '@oro_layout.loader.image_filter'
