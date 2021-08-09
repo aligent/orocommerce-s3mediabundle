@@ -1,6 +1,6 @@
 {
     "name": "aligent/orocommerce-s3mediabundle",
-    "version": "4.1.0",
+    "version": "4.2.0",
     "description": "Amazon S3 Based media storage for Oro Platform (OroCommerce and OroCRM)",
     "homepage": "https://github.com/aligent/orocommerce-s3mediabundle",
     "keywords": ["Oro", "OroPlatform", "OroCommerce", "OroCRM", "Amazon", "S3", "AWS"],
@@ -17,8 +17,7 @@
         }
     ],
     "require": {
-        "php": "~7.3.13 || ~7.4.2",
-        "oro/platform": "~4.1.0",
+        "oro/platform": "~4.2.0",
         "gaufrette/aws-s3-adapter": "^0.4.0",
         "knplabs/gaufrette": "0.9.0"
     },
