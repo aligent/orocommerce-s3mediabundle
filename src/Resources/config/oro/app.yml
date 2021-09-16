@@ -14,7 +14,7 @@ knp_gaufrette:
                 service_id: 'aligent_s3.client'
                 bucket_name: '%amazon_s3.bucket_name%'
                 options:
-                    directory:  'media/cache'
+                    directory:  'media'
                     create: true
 
 
