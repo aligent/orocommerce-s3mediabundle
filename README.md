@@ -3,7 +3,7 @@ Amazon S3 Media Storage Bundle for Oro Platform
 
 Facts
 -----
-- version: 2.0.0
+- version: 4.1.0
 - composer name: aligent/orocommerce-s3mediabundle
 
 Description
@@ -22,7 +22,7 @@ of the 1.x releases of this module.
     amazon_s3.secret: SUPER_SECRET
 ```
 
-The key and secret are optional in a ECS environment, as the ECS credentials provider is 
+The key and secret are optional in an ECS environment, as the ECS credentials provider is 
 used as a fallback if neither of them exist. 
 
 
