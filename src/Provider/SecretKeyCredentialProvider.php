@@ -12,9 +12,11 @@
 
 namespace Aligent\S3MediaBundle\Provider;
 
-use Aws\Credentials\CredentialProvider;
 use Aws\Credentials\Credentials;
+use Aws\Exception\CredentialsException;
 use GuzzleHttp\Promise;
+use GuzzleHttp\Promise\PromiseInterface;
+use GuzzleHttp\Promise\RejectedPromise;
 
 class SecretKeyCredentialProvider
 {
@@ -33,14 +35,14 @@ class SecretKeyCredentialProvider
      * @param string $key
      * @param string $secret
      */
-    public function __construct($key, $secret)
+    public function __construct(string $key, string $secret)
     {
         $this->key = $key;
         $this->secret = $secret;
     }
 
     /**
-     * @return RejectedPromise|Promise
+     * @return PromiseInterface
      */
     public function __invoke()
     {
