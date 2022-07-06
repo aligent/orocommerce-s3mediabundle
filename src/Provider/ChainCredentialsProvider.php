@@ -50,7 +50,7 @@ class ChainCredentialsProvider
     }
 
     /**
-     * @param $provider
+     * @param callable $provider
      * @return $this
      */
     public function addProvider($provider)
