@@ -1,14 +1,12 @@
 Amazon S3 Media Storage Bundle for Oro Platform
 ===============================================
 
-Facts
+Info
 -----
-- version: 4.1.0
 - composer name: aligent/orocommerce-s3mediabundle
 
 Description
 -----------
-
 This bundle provides configuration for using S3 buckets for media storage in Oro Platform 
 by configuring the KNPGaufrette Bundle.  It will work with both OroCommerce and OroCRM 
 versions based on Oro Platform 4.0.0 and later.  For older versions pf OroCommerce use one 
