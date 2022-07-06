@@ -15,7 +15,6 @@
 
 namespace Aligent\S3MediaBundle\Service;
 
-
 use Aligent\S3MediaBundle\Adapter\AwsS3;
 use Knp\Bundle\GaufretteBundle\FilesystemMap;
 use Liip\ImagineBundle\Imagine\Filter\FilterConfiguration;
@@ -112,5 +111,4 @@ class FilteredAttachmentMigrationService
 
         return $filterMap;
     }
-
 }

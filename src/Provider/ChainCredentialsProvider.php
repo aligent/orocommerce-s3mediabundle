@@ -12,7 +12,6 @@
 
 namespace Aligent\S3MediaBundle\Provider;
 
-
 use Aws\Credentials\CredentialProvider;
 use Aws\Credentials\Credentials;
 use Aws\DoctrineCacheAdapter;

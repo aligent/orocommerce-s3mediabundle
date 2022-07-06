@@ -12,12 +12,13 @@
 
 namespace Aligent\S3MediaBundle\Adapter;
 
-use Gaufrette\Adapter\AwsS3 as BaseAdapter; 
+use Gaufrette\Adapter\AwsS3 as BaseAdapter;
+
 class AwsS3 extends BaseAdapter
 {
 
     /**
-     * Returns a key iterator 
+     * Returns a key iterator
      * @return \Iterator
      */
     public function getKeyIterator($prefix)

@@ -43,7 +43,9 @@ class WebsiteImageMigrationCommand extends ContainerAwareCommand
         $this
             ->setDescription('Copies Website images to the new location required by Oro 3.1.12')
             ->addArgument(
-                'bucket', InputArgument::REQUIRED, 'Which S3 Bucket do you want to migrate?'
+                'bucket',
+                InputArgument::REQUIRED,
+                'Which S3 Bucket do you want to migrate?'
             )
             ->addArgument('key', InputArgument::REQUIRED, 'Amazon API Key')
             ->addArgument('secret', InputArgument::REQUIRED, 'Amazon API Secret')
