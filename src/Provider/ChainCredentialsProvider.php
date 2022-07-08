@@ -12,7 +12,6 @@
 
 namespace Aligent\S3MediaBundle\Provider;
 
-
 use Aws\Credentials\CredentialProvider;
 use Aws\Credentials\Credentials;
 use Aws\DoctrineCacheAdapter;
@@ -51,7 +50,7 @@ class ChainCredentialsProvider
     }
 
     /**
-     * @param $provider
+     * @param callable $provider
      * @return $this
      */
     public function addProvider($provider)
