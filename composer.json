@@ -33,7 +33,7 @@
   "require": {
     "oro/platform": "5.0.*",
     "gaufrette/aws-s3-adapter": "^0.4.0",
-    "knplabs/gaufrette": "^0.11.0",
+    "knplabs/gaufrette": "^0.10.0",
     "aws/aws-sdk-php": "^3.17.0"
   },
   "require-dev": {
