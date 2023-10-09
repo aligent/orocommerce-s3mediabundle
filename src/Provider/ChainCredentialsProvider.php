@@ -33,8 +33,8 @@ class ChainCredentialsProvider
      * @param CacheInterface $cache
      */
     public function __construct(
-        protected CacheInterface $cache)
-    {
+        protected CacheInterface $cache
+    ) {
     }
 
     /**

@@ -2,14 +2,13 @@
 namespace Aligent\S3MediaBundle\Cache;
 
 use Aws\CacheInterface as AwsCacheInterface;
-use Doctrine\Common\Cache\Cache;
+use Symfony\Component\Cache\Adapter\AdapterInterface;
 use Symfony\Component\Cache\CacheItem;
-use Symfony\Contracts\Cache\CacheInterface as SymfonyCacheInterface;
 
 class OroCacheAdapter implements AwsCacheInterface
 {
     public function __construct(
-        private SymfonyCacheInterface $cache
+        private AdapterInterface $cache
     ) {
     }
 
@@ -44,7 +43,7 @@ class OroCacheAdapter implements AwsCacheInterface
 
     public function remove($key)
     {
-        return $this->cache->delete($key);
+        return $this->cache->deleteItem($key);
     }
 
     public function delete($key)
