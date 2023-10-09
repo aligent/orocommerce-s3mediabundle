@@ -5,15 +5,14 @@ services:
         tags:
           - { name: 'cache.pool', namespace: 'aligent_s3' }
 
-    aligent_s3.cache_adapter:
-        class: Aws\DoctrineCacheAdapter
+    Aligent\S3MediaBundle\Cache\OroCacheAdapter:
         arguments:
             - '@aligent_s3.cache'
 
     aligent_s3.credentials_provider.chain:
         class: Aligent\S3MediaBundle\Provider\ChainCredentialsProvider
         arguments:
-            - '@aligent_s3.cache_adapter'
+            - '@Aligent\S3MediaBundle\Cache\OroCacheAdapter'
 
     aligent_s3.credentials:
         class: GuzzleHttp\Promise\PromiseInterface

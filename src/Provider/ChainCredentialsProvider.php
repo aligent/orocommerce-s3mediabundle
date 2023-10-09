@@ -12,6 +12,7 @@
 
 namespace Aligent\S3MediaBundle\Provider;
 
+use Aws\CacheInterface;
 use Aws\Credentials\CredentialProvider;
 use Aws\Credentials\Credentials;
 use Aws\DoctrineCacheAdapter;
@@ -28,17 +29,12 @@ class ChainCredentialsProvider
     protected $providers = [];
 
     /**
-     * @var DoctrineCacheAdapter
-     */
-    protected $cache;
-
-    /**
      * ChainCredentialsProvider constructor.
-     * @param DoctrineCacheAdapter $cache
+     * @param CacheInterface $cache
      */
-    public function __construct(DoctrineCacheAdapter $cache)
+    public function __construct(
+        protected CacheInterface $cache)
     {
-        $this->cache = $cache;
     }
 
     /**
