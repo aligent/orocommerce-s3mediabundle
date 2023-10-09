@@ -9,20 +9,19 @@ services:
         arguments:
             - '@aligent_s3.cache'
 
-    aligent_s3.credentials_provider.chain:
-        class: Aligent\S3MediaBundle\Provider\ChainCredentialsProvider
+    Aligent\S3MediaBundle\Provider\ChainCredentialsProvider:
         arguments:
             - '@Aligent\S3MediaBundle\Cache\OroCacheAdapter'
 
     aligent_s3.credentials:
         class: GuzzleHttp\Promise\PromiseInterface
-        factory: ['@aligent_s3.credentials_provider.chain', 'getCredentialChain']
+        factory: ['@Aligent\S3MediaBundle\Provider\ChainCredentialsProvider', 'getCredentialChain']
 
     aligent_s3.credentials_provider.ecs:
         class: Aws\Credentials\EcsCredentialProvider
         factory: ['Aws\Credentials\CredentialProvider', 'ecsCredentials']
         tags:
-            - { name: aligent_s3.crendential_provider }
+            - { name: aligent_s3.credential_provider }
 
     aligent_s3.credentials_provider.key:
         class: 'Aligent\S3MediaBundle\Provider\SecretKeyCredentialProvider'
@@ -30,7 +29,7 @@ services:
             - "@=container.hasParameter('amazon_s3.key') ? parameter('amazon_s3.key') : ''"
             - "@=container.hasParameter('amazon_s3.secret') ? parameter('amazon_s3.secret') : ''"
         tags:
-            - { name: aligent_s3.crendential_provider }
+            - { name: aligent_s3.credential_provider }
 
     aligent_s3.client:
         class: Aws\S3\S3Client
