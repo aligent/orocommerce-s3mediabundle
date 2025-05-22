@@ -16,7 +16,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
@@ -30,7 +30,7 @@ jobs:
 
       - name: Cache Composer packages
         id: composer-cache
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: vendor
           key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
@@ -43,6 +43,9 @@ jobs:
 
       - name: Configure Plugins runtime
         run: composer config --no-plugins allow-plugins.symfony/runtime true
+
+      - name: Configure Plugins http-discovery
+        run: composer config --no-plugins allow-plugins.php-http/discovery true
 
       - name: Install dependencies
         run: composer update --${{ matrix.stability }} --prefer-dist --no-interaction
