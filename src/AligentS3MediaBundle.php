@@ -6,7 +6,7 @@
  * @package
  * @author    Adam Hall <adam.hall@aligent.com.au>
  * @copyright 2018 Aligent Consulting.
- * @license
+ * @license   MIT
  * @link      http://www.aligent.com.au/
  */
 

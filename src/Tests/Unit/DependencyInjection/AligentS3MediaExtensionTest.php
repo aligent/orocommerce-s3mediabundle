@@ -4,7 +4,7 @@
  * @package
  * @author    Chris Rossi <chris.rossi@aligent.com.au>
  * @copyright 2022 Aligent Consulting.
- * @license
+ * @license   MIT
  * @link      http://www.aligent.com.au/
  */
 namespace Aligent\S3MediaBundle\Tests\Unit\DependencyInjection;

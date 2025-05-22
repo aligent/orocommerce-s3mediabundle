@@ -11,7 +11,7 @@
     "S3",
     "AWS"
   ],
-  "license": "OSL-3.0",
+  "license": "MIT",
   "authors": [
     {
       "name": "Adam Hall",
