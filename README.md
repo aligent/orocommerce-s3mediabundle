@@ -9,8 +9,8 @@ Description
 -----------
 This bundle provides configuration for using S3 buckets for media storage in Oro Platform 
 by configuring the KNPGaufrette Bundle.  It will work with both OroCommerce and OroCRM 
-versions based on Oro Platform 4.0.0 and later.  For older versions pf OroCommerce use one 
-of the 1.x releases of this module.
+versions based on Oro Platform 6.1.0 and later.  For older versions of OroCommerce use one 
+of the older releases of this module.
 
 ### Parameters
 ```
@@ -81,12 +81,12 @@ Initial version by Adam Hall <adam.hall@aligent.com.au>.
 
 Minor tweaks for OroCommerce 3.0 by Jim O'Halloran <jim@aligent.com.au>
 
-Update for Oro Platform 4.0 by Jim O'Halloran <jim.ohalloran@incore.com.au>
+Updates for Oro Platform 4.0, 5.1 & 6.1 by Jim O'Halloran <jim.ohalloran@incore.com.au>
 
 Licence
 -------
-[OSL - Open Software Licence 3.0](http://opensource.org/licenses/osl-3.0.php)
+[MIT](https://opensource.org/licenses/mit)
 
 Copyright
 ---------
-(c) 2018-19 Aligent Consulting
+(c) 2018-25 Aligent Consulting & Contributors

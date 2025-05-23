@@ -6,7 +6,7 @@
  * @package
  * @author    Adam Hall <adam.hall@aligent.com.au>
  * @copyright 2019 Aligent Consulting.
- * @license
+ * @license   MIT
  * @link      http://www.aligent.com.au/
  */
 
@@ -48,7 +48,7 @@ class AwsS3 extends BaseAdapter
     {
         return parent::computeKey($path);
     }
-    
+
     /*
      * Copies the file at $originalFilePath to $newFilePath
      */

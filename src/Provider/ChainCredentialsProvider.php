@@ -6,12 +6,13 @@
  * @package
  * @author    Adam Hall <adam.hall@aligent.com.au>
  * @copyright 2019 Aligent Consulting.
- * @license
+ * @license   MIT
  * @link      http://www.aligent.com.au/
  */
 
 namespace Aligent\S3MediaBundle\Provider;
 
+use Aws\CacheInterface;
 use Aws\Credentials\CredentialProvider;
 use Aws\Credentials\Credentials;
 use Aws\DoctrineCacheAdapter;
@@ -28,17 +29,12 @@ class ChainCredentialsProvider
     protected $providers = [];
 
     /**
-     * @var DoctrineCacheAdapter
-     */
-    protected $cache;
-
-    /**
      * ChainCredentialsProvider constructor.
-     * @param DoctrineCacheAdapter $cache
+     * @param CacheInterface $cache
      */
-    public function __construct(DoctrineCacheAdapter $cache)
-    {
-        $this->cache = $cache;
+    public function __construct(
+        protected CacheInterface $cache
+    ) {
     }
 
     /**

@@ -11,7 +11,7 @@
     "S3",
     "AWS"
   ],
-  "license": "OSL-3.0",
+  "license": "MIT",
   "authors": [
     {
       "name": "Adam Hall",
@@ -31,18 +31,18 @@
   "minimum-stability": "dev",
   "prefer-stable": true,
   "require": {
-    "oro/platform": "5.0.*",
+    "oro/platform": "6.1.*",
     "gaufrette/aws-s3-adapter": "^0.4.0",
-    "knplabs/gaufrette": "^0.10.0",
+    "knplabs/gaufrette": "^0.11",
     "aws/aws-sdk-php": "^3.17.0"
   },
   "require-dev": {
     "phpunit/phpunit": "^9.5",
     "phpstan/phpstan": "^1.7",
     "phpmd/phpmd": "^2.12",
-    "friendsofphp/php-cs-fixer": "~2.18.2 || ~3.1.0",
-    "nelmio/alice": "~3.8.0 || ~3.9.0",
-    "theofidry/alice-data-fixtures": "~1.4.0 || ~1.5.0",
+    "friendsofphp/php-cs-fixer": "~3.13.2 || ~3.1.0",
+    "nelmio/alice": "^3.13.5",
+    "theofidry/alice-data-fixtures": "^1.6.0",
     "symfony/phpunit-bridge": "~4.4.24 || ~6.1.0",
     "squizlabs/php_codesniffer": "^3.6"
   },

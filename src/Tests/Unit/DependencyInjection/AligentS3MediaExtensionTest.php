@@ -4,12 +4,14 @@
  * @package
  * @author    Chris Rossi <chris.rossi@aligent.com.au>
  * @copyright 2022 Aligent Consulting.
- * @license
+ * @license   MIT
  * @link      http://www.aligent.com.au/
  */
 namespace Aligent\S3MediaBundle\Tests\Unit\DependencyInjection;
 
+use Aligent\S3MediaBundle\Cache\OroCacheAdapter;
 use Aligent\S3MediaBundle\DependencyInjection\AligentS3MediaExtension;
+use Aligent\S3MediaBundle\Provider\ChainCredentialsProvider;
 use Oro\Bundle\TestFrameworkBundle\Test\DependencyInjection\ExtensionTestCase;
 
 class AligentS3MediaExtensionTest extends ExtensionTestCase
@@ -21,9 +23,8 @@ class AligentS3MediaExtensionTest extends ExtensionTestCase
         // Services
         $expectedDefinitions = [
             'aligent_s3.cache',
-            'aligent_s3.cache_adapter',
-            'aligent_s3.credentials_provider.chain',
-            'aligent_s3.credentials_provider.chain',
+            OroCacheAdapter::class,
+            ChainCredentialsProvider::class,
             'aligent_s3.credentials',
             'aligent_s3.credentials_provider.ecs',
             'aligent_s3.credentials_provider.key',
